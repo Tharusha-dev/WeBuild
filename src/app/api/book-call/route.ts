@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { JWT } from 'google-auth-library';
+import { NextRequest, NextResponse } from "next/server";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import { JWT } from "google-auth-library";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     // 1. Validation
     if (!phone || !description) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: "Missing required fields" },
         { status: 400 }
       );
     }
@@ -18,8 +18,8 @@ export async function POST(req: NextRequest) {
     // 2. Auth with Google
     const serviceAccountAuth = new JWT({
       email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY!.replace(/\\n/g, '\n'), // Fix for newline chars in Vercel/Env
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      key: process.env.GOOGLE_PRIVATE_KEY!.replace(/\\n/g, "\n"), // Fix for newline chars in Vercel/Env
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
 
     const doc = new GoogleSpreadsheet(
@@ -35,16 +35,20 @@ export async function POST(req: NextRequest) {
       Phone: phone,
       Description: description,
       Timestamp: new Date().toISOString(),
-      Status: 'NEW'
+      Status: "NEW",
     });
 
-    return NextResponse.json({ success: true, message: 'Data logged successfully' });
-
+    return NextResponse.json({
+      success: true,
+      message: "Data logged successfully",
+    });
   } catch (error) {
-    console.error('Sheet Error:', error);
+    console.error("Sheet Error:", error);
     return NextResponse.json(
-      { error: 'Internal Server Error' },
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }
 }
+
+export const runtime = "edge";
