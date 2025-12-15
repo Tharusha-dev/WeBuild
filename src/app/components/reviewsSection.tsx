@@ -97,18 +97,18 @@ export default function ReviewsSection() {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/20">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/20">
           {REVIEWS.map((item, index) => (
             <div 
               key={index}
               className="group relative border-r border-b border-white/20 bg-white/5 p-8 transition-colors hover:bg-white hover:text-[#6E65C7] flex flex-col justify-between min-h-[280px]"
             >
               {/* Metadata Header */}
-              <div className="flex justify-between items-start mb-6 font-mono text-xs opacity-60 group-hover:opacity-100 uppercase tracking-wider">
+              <div className="flex flex-col md:flex-row justify-between items-start mb-6 font-mono text-xs opacity-60 group-hover:opacity-100 uppercase tracking-wider">
                 <span>ENTRY_{index + 1 < 10 ? `0${index+1}` : index+1}</span>
                 <div className="flex items-center gap-2">
                    <span>{item.platform}</span>
-                   <span className="text-lg leading-none filter grayscale group-hover:grayscale-0">{item.country}</span>
+                   <span className="text-md md:text-lg leading-none filter grayscale group-hover:grayscale-0">{item.country}</span>
                 </div>
               </div>
 
@@ -121,7 +121,7 @@ export default function ReviewsSection() {
               </div>
 
               {/* Rating Footer */}
-              <div className="mt-auto flex items-center justify-between border-t border-dashed border-white/30 group-hover:border-[#6E65C7]/30 pt-4">
+              <div className="mt-auto flex flex-col md:flex-row items-start md:items-center justify-between border-t border-dashed border-white/30 group-hover:border-[#6E65C7]/30 pt-4">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <svg 
