@@ -72,7 +72,7 @@ const REVIEWS = [
 
 export default function ReviewsSection() {
   return (
-    <section className="bg-[#6E65C7] text-white border-t border-white/20 py-24 px-6 font-sans">
+    <section className="bg-[#49409e] text-white border-t border-white/20 py-24 px-6 font-sans">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -139,11 +139,17 @@ export default function ReviewsSection() {
               </div>
             </div>
           ))}
+
+            <div 
+              className="group relative border-r border-b border-white/20 bg-white/5 p-8 transition-colors opacity-50 font-mono flex  flex-col justify-center items-center min-h-[280px]"
+            >
+
+            AND MANY MORE...
+            </div>
         </div>
         
         {/* Footer Stat */}
         <div className="mt-8 flex justify-between items-center font-mono text-xs opacity-50 uppercase border-t border-white/10 pt-4">
-           <span>Total Entries: {REVIEWS.length}</span>
            <span>Average Rating: 4.98 / 5.0</span>
         </div>
 
