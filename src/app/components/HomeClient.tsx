@@ -373,7 +373,6 @@ export default function HomeClient() {
             {/* Success State */}
             {formStatus === "SUCCESS" ? (
               <div className="text-center py-8">
-                <div className="text-6xl mb-4">✅</div>
                 <h3 className="text-2xl font-bold uppercase">Request Queued</h3>
                 <p className="font-mono text-sm opacity-80 mt-2">
                   Our team has received your signal. We will deploy a response
