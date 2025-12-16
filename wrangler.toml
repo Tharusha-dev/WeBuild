@@ -2,5 +2,9 @@
 name = "webuild"
 pages_build_output_dir = ".vercel/output/static"
 
-# ADD THIS LINE:
+# You were missing this line:
+compatibility_date = "2024-12-16"
+
+# Keep this if you want broader Next.js support, 
+# though your new code might work without it.
 compatibility_flags = ["nodejs_compat"]
