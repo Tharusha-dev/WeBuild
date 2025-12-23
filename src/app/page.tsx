@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import HomeClient from "@/app/components/HomeClient";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://webuild.lk"),
   title: "WeBuild.lk | Automation Agency & E-commerce Optimization",
   description: "WeBuild.lk connects your disparate business apps into a single ecosystem. Experts in Make.com, AWS, Python, and E-commerce automation.",
+  alternates: { canonical: "/" },
   keywords: ["Automation Agency Sri Lanka", "Make.com experts", "E-commerce Automation", "Business Process Automation"],
   icons: {
     icon: "/assets/favicon.png",
